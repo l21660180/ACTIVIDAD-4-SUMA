@@ -1,88 +1,104 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suma de Números</title>
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página sea responsive y se vea bien en todos los dispositivos -->
+    <title>Suma de Números</title> <!-- Título que aparece en la pestaña del navegador -->
+
+    <!-- Aquí están los estilos CSS que dan un diseño atractivo y moderno -->
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+            font-family: 'Poppins', sans-serif; /* Fuente moderna */
+            display: flex; /* Usamos flexbox para centrar el contenido */
+            justify-content: center; /* Centra horizontalmente el contenido */
+            align-items: center; /* Centra verticalmente el contenido */
+            height: 100vh; /* La página ocupará el 100% de la altura visible */
+            margin: 0; /* Elimina los márgenes por defecto del navegador */
+            background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%); /* Fondo con un degradado moderno */
         }
         .formulario {
-            background-color: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-            text-align: center;
+            background-color: white; /* Fondo blanco para el formulario */
+            padding: 30px; /* Espaciado interno */
+            border-radius: 15px; /* Bordes redondeados */
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2); /* Sombra para darle un efecto de elevación */
+            text-align: center; /* Texto centrado */
         }
         h2 {
-            margin-bottom: 20px;
-            font-size: 24px;
-            color: #333;
+            margin-bottom: 20px; /* Espaciado debajo del título */
+            font-size: 24px; /* Tamaño grande del título */
+            color: #333; /* Color gris oscuro para el texto */
         }
         label {
-            font-size: 14px;
-            color: #666;
+            font-size: 14px; /* Tamaño pequeño para el texto de las etiquetas */
+            color: #666; /* Color gris claro */
         }
         input[type="number"] {
-            margin: 10px 0;
-            padding: 12px;
-            width: calc(100% - 24px);
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
+            margin: 10px 0; /* Espaciado arriba y abajo del input */
+            padding: 12px; /* Espaciado interno dentro del input */
+            width: calc(100% - 24px); /* Hace que el ancho del input sea proporcional al contenedor */
+            border: 1px solid #ddd; /* Borde gris claro */
+            border-radius: 5px; /* Bordes ligeramente redondeados */
+            font-size: 16px; /* Tamaño de letra moderado */
         }
         button {
-            background-color: #0f8972;
-            border: none;
-            color: white;
-            padding: 15px;
-            width: 100%;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            background-color: #0f8972; /* Color de fondo verde oscuro para el botón */
+            border: none; /* Sin borde */
+            color: white; /* Texto blanco */
+            padding: 15px; /* Espaciado interno en el botón */
+            width: 100%; /* Botón ocupa el ancho completo del contenedor */
+            border-radius: 5px; /* Bordes redondeados del botón */
+            font-size: 16px; /* Tamaño de la fuente del botón */
+            cursor: pointer; /* Muestra un puntero de mano al pasar por el botón */
+            transition: background-color 0.3s; /* Transición suave al cambiar el color del botón */
         }
         button:hover {
-            background-color: #033a44;
+            background-color: #033a44; /* Cambia el color de fondo del botón al pasar el mouse sobre él */
         }
         #caquita {
-            margin-top: 20px;
-            font-size: 18px;
-            color: #333;
+            margin-top: 20px; /* Espaciado superior para el párrafo */
+            font-size: 18px; /* Tamaño de fuente más grande */
+            color: #333; /* Color gris oscuro */
         }
     </style>
 </head>
 <body>
 
+    <!-- Contenedor para el formulario de suma -->
     <div class="formulario">
-        <h2>Ingrese dos números para sumar</h2>
+        <h2>Ingrese dos números para sumar</h2> <!-- Título del formulario -->
+
+        <!-- Campo para ingresar el primer número -->
         <label for="curpia1">Primer número:</label>
-        <input type="number" id="curpia1" placeholder="Número 1">
+        <input type="number" id="curpia1" placeholder="Número 1"> <!-- Input donde se ingresa el primer número -->
 
+        <!-- Campo para ingresar el segundo número -->
         <label for="churpia2">Segundo número:</label>
-        <input type="number" id="churpia2" placeholder="Número 2">
+        <input type="number" id="churpia2" placeholder="Número 2"> <!-- Input donde se ingresa el segundo número -->
 
+        <!-- Botón que ejecuta la función sumar() al hacer clic -->
         <button onclick="sumar()">Sumar</button>
 
+        <!-- Párrafo donde se mostrará el resultado de la suma -->
         <p id="caquita"></p>
     </div>
 
+    <!-- Aquí comienza el código JavaScript -->
     <script>
+        // Función que realiza la suma de los dos números
         function sumar() {
+            // Obtener el valor del primer número y convertirlo a número con parseFloat
             let curpia1 = parseFloat(document.getElementById("curpia1").value);
+            // Obtener el valor del segundo número y convertirlo a número con parseFloat
             let churpia2 = parseFloat(document.getElementById("churpia2").value);
+            // Sumar ambos números
             let resultado = curpia1 + churpia2;
 
+            // Comprobar si los valores ingresados son números
             if (!isNaN(resultado)) {
+                // Si son números, mostrar el resultado de la suma
                 document.getElementById("caquita").textContent = "La suma es: " + resultado;
             } else {
+                // Si no son números, mostrar un mensaje de advertencia
                 document.getElementById("caquita").textContent = "Por favor, ingrese ambos números.";
             }
         }
@@ -90,3 +106,4 @@
 
 </body>
 </html>
+Documentación lín
